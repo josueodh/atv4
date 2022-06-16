@@ -25,6 +25,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:onClick="calcularSimples"
         android:text="Calcular"
         app:backgroundTint="#4CAF50"
         app:layout_constraintEnd_toEndOf="parent"
