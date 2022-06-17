@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private EditText editTextValue;
-    private TextView textViewResultado;
+    private TextView textViewValorFinal;
     public static final int RESULT_SIMPLES = 1;
     public static final int RESULT_COMPOSTO = 2;
     ActivityResultLauncher<Intent> launcher;
@@ -24,50 +24,45 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textViewResultado = findViewById(R.id.textResultado);
+        textViewValorFinal = findViewById(R.id.textResultado);
         Button btnSimples = findViewById(R.id.buttonSimples);
         Button btnComposto = findViewById(R.id.buttonCompostos);
         editTextValue = findViewById(R.id.editValor);
         launcher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 new ActivityResultCallback<ActivityResult>(){
+
                     @Override
-                    public void onActivityResult(ActivityResult result){
+                    public void onActivityResult(ActivityResult result) {
+                        Double valorFinal;
                         Bundle extras;
-                        Double resultadoFinal;
                         switch (result.getResultCode()){
                             case RESULT_SIMPLES:
                                 extras = result.getData().getExtras();
-                                resultadoFinal = extras.getDouble("juros");
-                                textViewResultado.setText("Simples: " + resultadoFinal.toString());
+                                valorFinal = extras.getDouble("valorFinal");
+                                textViewValorFinal.setText("Simples: R$"+valorFinal.toString());
                                 break;
                             case RESULT_COMPOSTO:
                                 extras = result.getData().getExtras();
-                                resultadoFinal = extras.getDouble("juros");
-                                textViewResultado.setText("Compostos: " + resultadoFinal.toString());
+                                valorFinal = extras.getDouble("valorFinal");
+                                textViewValorFinal.setText("Compostos: R$"+valorFinal.toString());
                                 break;
                         }
+
                     }
                 }
         );
+    }
 
-        btnSimples.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,SimplesActivity.class);
-                intent.putExtra("value",Integer.parseInt(editTextValue.getText().toString()));
-                startActivity(intent);
-            }
-        });
-
-        btnComposto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,CompostosActivity.class);
-                intent.putExtra("value",Integer.parseInt(editTextValue.getText().toString()));
-                startActivity(intent);
-            }
-        });
+    public void jurosSimplesClick(View view){
+        try{
+            Double valorPresente = Double.parseDouble(editTextValue.getText().toString());
+            Intent intent = new Intent(MainActivity.this, SimplesActivity.class);
+            intent.putExtra("value", valorPresente);
+        }catch (Exception e){
+            editTextValue.selectAll();
+            editTextValue.requestFocus();
+        }
     }
 
 
