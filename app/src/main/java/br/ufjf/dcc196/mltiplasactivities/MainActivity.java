@@ -25,8 +25,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textViewValorFinal = findViewById(R.id.textResultado);
-        Button btnSimples = findViewById(R.id.buttonSimples);
-        Button btnComposto = findViewById(R.id.buttonCompostos);
         editTextValue = findViewById(R.id.editValor);
         launcher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
@@ -59,11 +57,12 @@ public class MainActivity extends AppCompatActivity {
             Double valorPresente = Double.parseDouble(editTextValue.getText().toString());
             Intent intent = new Intent(MainActivity.this, SimplesActivity.class);
             intent.putExtra("value", valorPresente);
+            launcher.launch(intent);
         }catch (Exception e){
+            System.out.println(e);
             editTextValue.selectAll();
             editTextValue.requestFocus();
         }
     }
-
 
 }
