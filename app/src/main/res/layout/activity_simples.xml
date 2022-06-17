@@ -25,7 +25,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:onClick="calcularSimples"
+        android:onClick="calcularClick"
         android:text="Calcular"
         app:backgroundTint="#4CAF50"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,4 +54,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editPeriodo" />
+
+    <TextView
+        android:id="@+id/textViewResultadoSimples"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Resultado: "
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewValorPresente" />
+
+    <TextView
+        android:id="@+id/textViewValorPresente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Valor: "
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCalcular" />
 </androidx.constraintlayout.widget.ConstraintLayout>
