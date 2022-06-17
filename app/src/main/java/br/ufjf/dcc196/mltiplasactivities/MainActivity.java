@@ -65,4 +65,17 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void jurosCompostoClick(View view){
+        try{
+            Double valorPresente = Double.parseDouble(editTextValue.getText().toString());
+            Intent intent = new Intent(MainActivity.this, CompostosActivity.class);
+            intent.putExtra("value", valorPresente);
+            launcher.launch(intent);
+        }catch (Exception e){
+            System.out.println(e);
+            editTextValue.selectAll();
+            editTextValue.requestFocus();
+        }
+    }
+
 }
