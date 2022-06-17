@@ -34,8 +34,6 @@ public class SimplesActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-
     }
 
     public void calcularSimples(View origem){
