@@ -35,7 +35,7 @@ public class CompostosActivity extends AppCompatActivity {
     public void retornarClick(View view){
         Intent resultado = new Intent();
         resultado.putExtra("resultado", valorFinal);
-        resultado.putExtra("relacao", valorFinalRelacao + "%");
+        resultado.putExtra("relacao", valorFinalRelacao);
         setResult(MainActivity.RESULT_COMPOSTO, resultado);
         finish();
     }

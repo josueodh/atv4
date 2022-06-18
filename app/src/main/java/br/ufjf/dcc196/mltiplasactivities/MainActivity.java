@@ -44,19 +44,19 @@ public class MainActivity extends AppCompatActivity {
                                 valorFinal = extras.getDouble("resultado");
                                 textViewValorFinal.setText("Simples: $"+valorFinal.toString());
                                 valorFinalRelacao = extras.getDouble("relacao");
-                                textViewRelacao.setText("Relação: "+valorFinalRelacao.toString());
+                                textViewRelacao.setText("Relação: "+valorFinalRelacao.toString() + "%");
                                 break;
                             case RESULT_COMPOSTO:
                                 extras = result.getData().getExtras();
                                 valorFinal = extras.getDouble("resultado");
                                 textViewValorFinal.setText("Compostos: $"+valorFinal.toString());
                                 valorFinalRelacao = extras.getDouble("relacao");
-                                textViewRelacao.setText("Relação: "+valorFinalRelacao.toString());
+                                textViewRelacao.setText("Relação: "+valorFinalRelacao.toString() + "%");
                                 break;
                             case RESULT_RELACAO:
                                 extras = result.getData().getExtras();
                                 valorFinalRelacao = extras.getDouble("relacao");
-                                textViewRelacao.setText("Relação: "+valorFinalRelacao.toString());
+                                textViewRelacao.setText("Relação: "+valorFinalRelacao.toString() + "%");
                                 break;
                         }
 

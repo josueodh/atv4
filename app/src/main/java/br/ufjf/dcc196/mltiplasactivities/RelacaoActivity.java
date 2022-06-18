@@ -29,7 +29,7 @@ public class RelacaoActivity extends AppCompatActivity {
 
     public void retornarClick(View view){
         Intent resultado = new Intent();
-        resultado.putExtra("relacao", valorFinal + "%");
+        resultado.putExtra("relacao", valorFinal);
         setResult(MainActivity.RESULT_RELACAO, resultado);
         finish();
     }
