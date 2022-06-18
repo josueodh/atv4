@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView textViewValorFinal;
     public static final int RESULT_SIMPLES = 1;
     public static final int RESULT_COMPOSTO = 2;
+    public static final int RESULT_RELACAO = 3;
     ActivityResultLauncher<Intent> launcher;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
