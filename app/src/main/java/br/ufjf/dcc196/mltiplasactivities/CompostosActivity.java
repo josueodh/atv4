@@ -12,7 +12,7 @@ public class CompostosActivity extends AppCompatActivity {
 
     private Double valorPresente;
     private Double valorFinal;
-
+    private Double valorFinalRelacao;
     private TextView textViewValorPresente;
     private EditText editTextTaxaDeJuros;
     private EditText editTextPeriodos;
@@ -35,6 +35,7 @@ public class CompostosActivity extends AppCompatActivity {
     public void retornarClick(View view){
         Intent resultado = new Intent();
         resultado.putExtra("resultado", valorFinal);
+        resultado.putExtra("relacao", valorFinalRelacao + "%");
         setResult(MainActivity.RESULT_COMPOSTO, resultado);
         finish();
     }
@@ -47,5 +48,8 @@ public class CompostosActivity extends AppCompatActivity {
         periodos = Integer.parseInt(editTextPeriodos.getText().toString());
         valorFinal = valorPresente*Math.pow(1+taxaDeJuros,periodos);
         textViewResultado.setText("Resultado: $" +valorFinal.toString());
+        valorFinalRelacao =  100.0 * valorFinal/valorPresente;
+        System.out.println(valorFinal);
+        System.out.println(valorPresente);
     }
 }

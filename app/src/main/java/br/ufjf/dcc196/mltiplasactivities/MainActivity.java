@@ -42,14 +42,14 @@ public class MainActivity extends AppCompatActivity {
                             case RESULT_SIMPLES:
                                 extras = result.getData().getExtras();
                                 valorFinal = extras.getDouble("resultado");
-                                textViewValorFinal.setText("Simples: R$"+valorFinal.toString());
+                                textViewValorFinal.setText("Simples: $"+valorFinal.toString());
                                 valorFinalRelacao = extras.getDouble("relacao");
                                 textViewRelacao.setText("Relação: "+valorFinalRelacao.toString());
                                 break;
                             case RESULT_COMPOSTO:
                                 extras = result.getData().getExtras();
                                 valorFinal = extras.getDouble("resultado");
-                                textViewValorFinal.setText("Compostos: R$"+valorFinal.toString());
+                                textViewValorFinal.setText("Compostos: $"+valorFinal.toString());
                                 valorFinalRelacao = extras.getDouble("relacao");
                                 textViewRelacao.setText("Relação: "+valorFinalRelacao.toString());
                                 break;
