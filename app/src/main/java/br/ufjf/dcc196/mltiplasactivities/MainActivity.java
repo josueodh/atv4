@@ -37,12 +37,12 @@ public class MainActivity extends AppCompatActivity {
                         switch (result.getResultCode()){
                             case RESULT_SIMPLES:
                                 extras = result.getData().getExtras();
-                                valorFinal = extras.getDouble("valorFinal");
+                                valorFinal = extras.getDouble("resultado");
                                 textViewValorFinal.setText("Simples: R$"+valorFinal.toString());
                                 break;
                             case RESULT_COMPOSTO:
                                 extras = result.getData().getExtras();
-                                valorFinal = extras.getDouble("valorFinal");
+                                valorFinal = extras.getDouble("resultado");
                                 textViewValorFinal.setText("Compostos: R$"+valorFinal.toString());
                                 break;
                         }
