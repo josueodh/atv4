@@ -13,8 +13,7 @@ import android.widget.Toast;
 public class SimplesActivity extends AppCompatActivity {
     private Double valorPresente;
     private Double valorFinal;
-    Double taxaDeJuros;
-    Integer periodos;
+
     private TextView textViewValorPresente;
     private EditText editTextTaxaDeJuros;
     private EditText editTextPeriodos;
@@ -33,7 +32,18 @@ public class SimplesActivity extends AppCompatActivity {
         textViewResultado = findViewById(R.id.textViewResultadoSimples);
     }
 
+
+    public void retornarClick(View view){
+        Intent resultado = new Intent();
+        resultado.putExtra("resultado", valorFinal);
+        setResult(MainActivity.RESULT_SIMPLES, resultado);
+        finish();
+    }
+
+
     public void calcularClick(View view ){
+        Double taxaDeJuros;
+        Integer periodos;
         taxaDeJuros = Double.parseDouble(editTextTaxaDeJuros.getText().toString())/100.0;
         periodos = Integer.parseInt(editTextPeriodos.getText().toString());
         valorFinal = valorPresente*(1+taxaDeJuros*periodos);
