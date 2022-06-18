@@ -46,6 +46,11 @@ public class MainActivity extends AppCompatActivity {
                                 valorFinal = extras.getDouble("resultado");
                                 textViewValorFinal.setText("Compostos: R$"+valorFinal.toString());
                                 break;
+                            case RESULT_RELACAO:
+                                extras = result.getData().getExtras();
+                                valorFinal = extras.getDouble("resultado");
+                                textViewValorFinal.setText("Compostos: R$"+valorFinal.toString());
+                                break;
                         }
 
                     }
@@ -70,6 +75,19 @@ public class MainActivity extends AppCompatActivity {
         try{
             Double valorPresente = Double.parseDouble(editTextValue.getText().toString());
             Intent intent = new Intent(MainActivity.this, CompostosActivity.class);
+            intent.putExtra("value", valorPresente);
+            launcher.launch(intent);
+        }catch (Exception e){
+            System.out.println(e);
+            editTextValue.selectAll();
+            editTextValue.requestFocus();
+        }
+    }
+
+    public void relacaoClick(View view){
+        try{
+            Double valorPresente = Double.parseDouble(editTextValue.getText().toString());
+            Intent intent = new Intent(MainActivity.this, RelacaoActivity.class);
             intent.putExtra("value", valorPresente);
             launcher.launch(intent);
         }catch (Exception e){
