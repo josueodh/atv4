@@ -48,6 +48,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
+        android:onClick="calcularClick"
         android:text="Calcular"
         app:backgroundTint="#4CAF50"
         app:layout_constraintEnd_toEndOf="parent"
